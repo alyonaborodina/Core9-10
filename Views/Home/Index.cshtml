@@ -1,0 +1,56 @@
+﻿@{
+    Layout = null;
+}
+
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/js/file.js" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<body>
+    <input type="button" id="button1" value="Обновить">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-xs-12 col-md-8">
+                <table>
+                    <tr>
+                        <th>Название</th>
+                        <th>Количество в приходе</th>
+                        <th>Дата прихода</th>
+                    </tr>
+                    @foreach (var a in Core9.Models.ProductContext.Products)
+                    {
+                        <tr>
+                            <td>@a.Name</td>
+                            <td>@a.Count</td>
+                            <td>@a.Date</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+    <br />
+
+    @model Core9.Models.Product
+    <form name="form1" method="post" action="/Home/Index">
+        <div>
+            <input type="text" name="Name" size="50" maxlength="50" value="Введите название продукта">
+            <span asp-validation-for="Name"></span>
+        </div>
+        <div>
+            <input type="text" name="Count" size="50" maxlength="50" value="Введите количество продукта в приходе">
+            <span asp-validation-for="Count"></span>
+        </div>
+        <div>
+            <input type="text" name="Date" size="50" maxlength="50" value="Введите дату прихода">
+            <span asp-validation-for="Date"></span>
+        </div>
+        <div> <input type="submit" name="submit" value="Добавить"></div>
+    </form>
+
+</body>
+</html>
