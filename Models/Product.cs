@@ -9,6 +9,7 @@ namespace Core9.Models
 {
     public class Product
     {
+        public int Id { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]
@@ -17,7 +18,7 @@ namespace Core9.Models
         public DateTime Date { get; set; }
     }
 
-    public class ProductContext
+    public class ProductList
     {
         public static List<Product> Products = new List<Product>();
     }

@@ -21,36 +21,15 @@
                         <th>Количество в приходе</th>
                         <th>Дата прихода</th>
                     </tr>
-                    @foreach (var a in Core9.Models.ProductContext.Products)
+                    @foreach (var a in Model)
                     {
-                        <tr>
-                            <td>@a.Name</td>
-                            <td>@a.Count</td>
-                            <td>@a.Date</td>
-                        </tr>
+                        <tr><td>@a.Id</td><td>@a.Name</td><td>@a.Count</td><td>@a.Date</td><td><a asp-action="Delete" asp-route-_id="@a.Id">Удалить запись</a></td></tr>
                     }
                 </table>
             </div>
         </div>
     </div>
+    <div><a asp-action="AddNew">Добавить запись</a></div>
     <br />
-
-    @model Core9.Models.Product
-    <form name="form1" method="post" action="/Home/Index">
-        <div>
-            <input type="text" name="Name" size="50" maxlength="50" value="Введите название продукта">
-            <span asp-validation-for="Name"></span>
-        </div>
-        <div>
-            <input type="text" name="Count" size="50" maxlength="50" value="Введите количество продукта в приходе">
-            <span asp-validation-for="Count"></span>
-        </div>
-        <div>
-            <input type="text" name="Date" size="50" maxlength="50" value="Введите дату прихода">
-            <span asp-validation-for="Date"></span>
-        </div>
-        <div> <input type="submit" name="submit" value="Добавить"></div>
-    </form>
-
 </body>
 </html>

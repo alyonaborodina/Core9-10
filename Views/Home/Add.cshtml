@@ -1,0 +1,19 @@
+﻿@model Core9.Models.Product
+@{
+    Layout = null;
+}
+<form name="form1" method="post" action="/Home/Index">
+    <div>
+        <input type="text" name="Name" size="50" maxlength="50" value="Введите название продукта">
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div>
+        <input type="text" name="Count" size="50" maxlength="50" value="Введите количество продукта в приходе">
+        <span asp-validation-for="Count"></span>
+    </div>
+    <div>
+        <input type="text" name="Date" size="50" maxlength="50" value="Введите дату прихода">
+        <span asp-validation-for="Date"></span>
+    </div>
+    <div> <input type="submit" name="submit" value="Добавить"></div>
+</form>
